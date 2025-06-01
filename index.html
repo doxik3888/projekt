@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
 </head>
 <body>
     <section class="naumovT-section">
@@ -15,6 +16,22 @@
             </div>
         </div>
         <h1>Всего лайков: <span class="amount">0</span></h1>
+    </section>
+    <section class="xv1-music">
+        <div class="xv1-musiccontainer">
+            <img src="countdown.png" class="xv1-musicimg">
+            <div class="xv1-musicprogress">
+            <h2>Countdown - Geneburn</h2>
+            <audio id="audioPlayer" src="countdownmusic.mp3"></audio>
+                <button class="xv1-playbtn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="xv1-progressbar">
+                    <div class="xv1-progress"></div>
+                </div>
+                <div class="xv1-time">0:00 / 2:52</div>
+            </div>
+        </div>
     </section>
 </body>
 </html>
