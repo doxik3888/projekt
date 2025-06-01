@@ -479,3 +479,30 @@ to { transform: rotateZ(360deg);
     color: black;
     background-color: violet;
 }
+.ppl{
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 10%;
+    margin-left: 33%;
+    border-radius: 30px;
+}
+.ppl p{
+    font-size: large;
+    font-weight: 700;
+}
+.instr{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.instr p{
+    font-size:xx-large;
+    font-weight: 1000;
+}
+.smail{
+    display: flex;
+    justify-self: center;
+    margin-top:50px;
+}
