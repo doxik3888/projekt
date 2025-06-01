@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мистический Холст Частиц</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome для иконок (кнопки очистки) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="canvas-container">
+        <h1>Мистический Холст Частиц</h1>
+        <p>Двигайте мышью по холсту, чтобы рисовать. Зажмите кнопку мыши, чтобы усилить эффект.</p>
+        <canvas id="particleCanvas"></canvas>
+
+        <div class="controls-panel">
+            <div class="control-group">
+                <label for="particleColor">Цвет частиц:</label>
+                <input type="color" id="particleColor" value="#8aff8a"> <!-- Начальный цвет - салатовый -->
+            </div>
+
+            <div class="control-group">
+                <label for="particleSize">Размер частиц:</label>
+                <input type="range" id="particleSize" min="1" max="10" value="3">
+                <span id="currentSize">3</span>
+            </div>
+
+            <div class="control-group">
+                <label for="particleDensity">Плотность частиц:</label>
+                <input type="range" id="particleDensity" min="1" max="10" value="5">
+                <span id="currentDensity">5</span>
+            </div>
+
+            <button id="clearCanvasBtn" class="action-button">
+                <i class="fas fa-trash-alt"></i> Очистить
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
