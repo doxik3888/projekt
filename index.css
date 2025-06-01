@@ -120,3 +120,119 @@ to { transform: rotateZ(360deg);
     box-shadow: 2px 4px 15px 10px var(--black);
     cursor: pointer;
 }
+.FXEE_sec{
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.FXEE_secLine{
+    padding: 0;
+    margin: 0;
+    margin-top: 3vh;
+    margin-left: 3vw;
+    width: 10vw;
+    height: 0.4vh;
+    background-color: #b3ff00;
+    border-radius: 0.2vh;
+}
+.FXEE_Btns{
+    padding: 0;
+    margin: 3vw;
+}
+.FXEE_B0{
+    font-weight: 600;
+    width: 10%;
+    height: 20%;
+    rotate: -20deg;
+    border: 1px solid black;
+    border-radius: 1vw;
+    background-color: pink;
+}
+.FXEE_B1{
+    font-weight: 800;
+    width: 10%;
+    height: 3%;
+    rotate: 26deg;
+    border: 1px solid black;
+    border-radius: 1vw;
+    background-color: orange;
+}
+.FXEE_B2{
+    font-weight: 500;
+    width: 20%;
+    height: 5%;
+    rotate: 140deg;
+    border: 3px solid black;
+    border-radius: 3vw;
+    background-color: green;
+}
+.FXEE_B3{
+    font-weight: 1000;
+    width: 10%;
+    height: 10%;
+    rotate: 0deg;
+    border: 0px solid black;
+    border-radius: 1vw;
+    background-color: red;
+}
+.FXEE_B4{
+    font-weight: 300;
+    width: 10%;
+    height: 5%;
+    rotate: 180deg;
+    border: 1px solid black;
+    border-radius: 1vw;
+    color: black;
+    background-color: greenyellow;
+}
+.FXEE_B5{
+    font-weight: 800;
+    width: 15%;
+    height: 4%;
+    rotate: -14deg;
+    border: 1px solid black;
+    border-radius: 1vw;
+    color: black;
+    background-color: aquamarine;
+}
+.FXEE_B6{
+    font-weight: 500;
+    width: 10%;
+    height: 20%;
+    rotate: 90deg;
+    border: 1px solid black;
+    border-radius: 1vw;
+    color: black;
+    background-color: darkkhaki;
+}
+.FXEE_B7{
+    font-weight: 600;
+    width: 20%;
+    height: 3%;
+    rotate: -56deg;
+    border: 1px solid black;
+    border-radius: 6vw;
+    color: black;
+    background-color: darkcyan;
+}
+.FXEE_B8{
+    font-weight: 700;
+    width: 10%;
+    height: 3%;
+    rotate: 50deg;
+    border: 1px solid black;
+    border-radius: 1vw;
+    color: black;
+    background-color: blue;
+}
+.FXEE_B9{
+    font-weight: 400;
+    width: 10vw;
+    height: 3vw;
+    rotate: 0deg;
+    border: 1px solid black;
+    border-radius: 3vw;
+    color: black;
+    background-color: violet;
+}
