@@ -1,0 +1,44 @@
+.naumovT-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.like {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.in-like {
+    height: 50vh;
+    width: 50vh;
+    border: 5px solid black;
+    border-radius: 50px;
+    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clicker {
+    width: 50%;
+    height: 50%;
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 
+        flex-grow 750ms ease-out,
+        transform 200ms,
+        box-shadow 200ms;
+}
+
+.clicker:hover {
+    transform: translateY(-7px);
+    box-shadow: 2px 4px 15px 10px var(--black);
+    cursor: pointer;
+}
