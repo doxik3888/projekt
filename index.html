@@ -8,6 +8,146 @@
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+     <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
+      }
+
+      #stats {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .stat {
+        text-align: center;
+      }
+
+      .stat-value {
+        font-weight: bold;
+        font-size: 18px;
+        color: #333;
+      }
+
+      #counter {
+        font-size: 48px;
+        margin: 20px 0;
+        color: #333;
+      }
+
+      #clickButton {
+        padding: 20px 40px;
+        font-size: 24px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      #clickButton:hover {
+        background-color: #45a049;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      #clickButton:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      #upgrades {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 15px;
+        width: 100%;
+        max-width: 1200px;
+      }
+
+      .upgrade-category {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .upgrade-category h3 {
+        margin-top: 0;
+        color: #333;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+      }
+
+      .upgrade {
+        padding: 12px;
+        margin-bottom: 10px;
+        background-color: #2196f3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: left;
+        transition: background-color 0.3s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .upgrade:hover {
+        background-color: #0b7dda;
+      }
+
+      .upgrade:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+
+      .upgrade-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .upgrade-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .upgrade-description {
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      .upgrade-cost {
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 5px 10px;
+        border-radius: 15px;
+        min-width: 60px;
+        text-align: center;
+      }
+
+      .owned {
+        background-color: #4caf50;
+      }
+    </style>
 </head>
 
 <body>
@@ -95,6 +235,339 @@
         <button class="FXEE_Btns FXEE_B7">Button 7</button>
         <button class="FXEE_Btns FXEE_B8">Button 8</button>
         <button class="FXEE_Btns FXEE_B9">Button 9</button>
+    </section>
+     <section>
+      <div id="stats">
+        <div class="stat">
+          <div>Всего кликов</div>
+          <div class="stat-value" id="totalClicks">0</div>
+        </div>
+        <div class="stat">
+          <div>Кликов за клик</div>
+          <div class="stat-value" id="clickPower">1</div>
+        </div>
+        <div class="stat">
+          <div>Пассивный доход</div>
+          <div class="stat-value" id="passiveIncome">0/сек</div>
+        </div>
+      </div>
+
+      <div id="counter">0 кликов</div>
+      <button id="clickButton">тык</button>
+
+      <div id="upgrades">
+        <div class="upgrade-category">
+          <h3>Улучшения клика</h3>
+          <button
+            class="upgrade"
+            id="doubleClick"
+            data-cost="100"
+            data-power="2"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Двойной клик</span>
+              <span class="upgrade-description"
+                >Удваивает силу каждого клика</span
+              >
+            </div>
+            <span class="upgrade-cost">100</span>
+          </button>
+          <button
+            class="upgrade"
+            id="tripleClick"
+            data-cost="500"
+            data-power="3"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Тройной клик</span>
+              <span class="upgrade-description"
+                >Утраивает силу каждого клика</span
+              >
+            </div>
+            <span class="upgrade-cost">500</span>
+          </button>
+          <button
+            class="upgrade"
+            id="powerClick"
+            data-cost="2000"
+            data-power="5"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Мощный клик</span>
+              <span class="upgrade-description">+5 кликов за каждый клик</span>
+            </div>
+            <span class="upgrade-cost">2000</span>
+          </button>
+          <button
+            class="upgrade"
+            id="megaClick"
+            data-cost="10000"
+            data-power="10"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Мега клик</span>
+              <span class="upgrade-description">+10 кликов за каждый клик</span>
+            </div>
+            <span class="upgrade-cost">10000</span>
+          </button>
+          <button
+            class="upgrade"
+            id="criticalClick"
+            data-cost="25000"
+            data-power="0.2"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Критический клик</span>
+              <span class="upgrade-description">20% шанс на 5x кликов</span>
+            </div>
+            <span class="upgrade-cost">25000</span>
+          </button>
+        </div>
+
+        <div class="upgrade-category">
+          <h3>Автокликеры</h3>
+          <button
+            class="upgrade"
+            id="autoClicker1"
+            data-cost="50"
+            data-power="1"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Базовый автокликер</span>
+              <span class="upgrade-description"
+                >Автоматически кликает 1 раз в секунду</span
+              >
+            </div>
+            <span class="upgrade-cost">50</span>
+          </button>
+          <button
+            class="upgrade"
+            id="autoClicker2"
+            data-cost="300"
+            data-power="2"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Улучшенный автокликер</span>
+              <span class="upgrade-description">+2 клика в секунду</span>
+            </div>
+            <span class="upgrade-cost">300</span>
+          </button>
+          <button
+            class="upgrade"
+            id="autoClicker3"
+            data-cost="1500"
+            data-power="5"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Продвинутый автокликер</span>
+              <span class="upgrade-description">+5 кликов в секунду</span>
+            </div>
+            <span class="upgrade-cost">1500</span>
+          </button>
+          <button
+            class="upgrade"
+            id="autoClicker4"
+            data-cost="7500"
+            data-power="10"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Профессиональный автокликер</span>
+              <span class="upgrade-description">+10 кликов в секунду</span>
+            </div>
+            <span class="upgrade-cost">7500</span>
+          </button>
+          <button
+            class="upgrade"
+            id="autoClicker5"
+            data-cost="30000"
+            data-power="25"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Квантовый автокликер</span>
+              <span class="upgrade-description">+25 кликов в секунду</span>
+            </div>
+            <span class="upgrade-cost">30000</span>
+          </button>
+        </div>
+
+        <div class="upgrade-category">
+          <h3>Множители</h3>
+          <button
+            class="upgrade"
+            id="multiplier1"
+            data-cost="1000"
+            data-power="1.5"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Множитель x1.5</span>
+              <span class="upgrade-description"
+                >Умножает все доходы на 1.5</span
+              >
+            </div>
+            <span class="upgrade-cost">1000</span>
+          </button>
+          <button
+            class="upgrade"
+            id="multiplier2"
+            data-cost="5000"
+            data-power="2"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Множитель x2</span>
+              <span class="upgrade-description">Умножает все доходы на 2</span>
+            </div>
+            <span class="upgrade-cost">5000</span>
+          </button>
+          <button
+            class="upgrade"
+            id="multiplier3"
+            data-cost="20000"
+            data-power="3"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Множитель x3</span>
+              <span class="upgrade-description">Умножает все доходы на 3</span>
+            </div>
+            <span class="upgrade-cost">20000</span>
+          </button>
+          <button
+            class="upgrade"
+            id="multiplier4"
+            data-cost="50000"
+            data-power="5"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Множитель x5</span>
+              <span class="upgrade-description">Умножает все доходы на 5</span>
+            </div>
+            <span class="upgrade-cost">50000</span>
+          </button>
+          <button
+            class="upgrade"
+            id="multiplier5"
+            data-cost="150000"
+            data-power="10"
+          >
+            <div class="upgrade-info">
+              <span class="upgrade-name">Множитель x10</span>
+              <span class="upgrade-description">Умножает все доходы на 10</span>
+            </div>
+            <span class="upgrade-cost">150000</span>
+          </button>
+        </div>
+      </div>
+
+      <script>
+        let clicks = 0;
+        let totalClicks = 0;
+        let clickPower = 1;
+        let passiveIncome = 0;
+        let multiplier = 1;
+        let hasCritical = false;
+
+        const counterElement = document.getElementById("counter");
+        const totalClicksElement = document.getElementById("totalClicks");
+        const clickPowerElement = document.getElementById("clickPower");
+        const passiveIncomeElement = document.getElementById("passiveIncome");
+        const clickButton = document.getElementById("clickButton");
+        const upgrades = [
+          { id: "doubleClick", type: "click", power: 2 },
+          { id: "tripleClick", type: "click", power: 3 },
+          { id: "powerClick", type: "clickAdd", power: 5 },
+          { id: "megaClick", type: "clickAdd", power: 10 },
+          { id: "criticalClick", type: "critical", power: 0.2 },
+
+          { id: "autoClicker1", type: "auto", power: 1 },
+          { id: "autoClicker2", type: "auto", power: 2 },
+          { id: "autoClicker3", type: "auto", power: 5 },
+          { id: "autoClicker4", type: "auto", power: 10 },
+          { id: "autoClicker5", type: "auto", power: 25 },
+
+          { id: "multiplier1", type: "multiplier", power: 1.5 },
+          { id: "multiplier2", type: "multiplier", power: 2 },
+          { id: "multiplier3", type: "multiplier", power: 3 },
+          { id: "multiplier4", type: "multiplier", power: 5 },
+          { id: "multiplier5", type: "multiplier", power: 10 },
+        ];
+
+        upgrades.forEach((upgrade) => {
+          const element = document.getElementById(upgrade.id);
+          const cost = parseInt(element.getAttribute("data-cost"));
+
+          element.addEventListener("click", () => {
+            if (clicks >= cost) {
+              clicks -= cost;
+
+              switch (upgrade.type) {
+                case "click":
+                  clickPower *= upgrade.power;
+                  break;
+                case "clickAdd":
+                  clickPower += upgrade.power;
+                  break;
+                case "auto":
+                  passiveIncome += upgrade.power;
+                  break;
+                case "multiplier":
+                  multiplier *= upgrade.power;
+                  clickPower *= upgrade.power;
+                  passiveIncome *= upgrade.power;
+                  break;
+                case "critical":
+                  hasCritical = true;
+                  break;
+              }
+
+              element.disabled = true;
+              updateStats();
+              updateCounter();
+            }
+          });
+        });
+
+        clickButton.addEventListener("click", () => {
+          let add = clickPower;
+
+          if (hasCritical && Math.random() < 0.2) {
+            add *= 5;
+          }
+
+          clicks += add;
+          totalClicks += add;
+          updateCounter();
+          updateStats();
+        });
+
+        setInterval(() => {
+          if (passiveIncome > 0) {
+            clicks += passiveIncome;
+            totalClicks += passiveIncome;
+            updateCounter();
+            updateStats();
+          }
+        }, 1000);
+
+        function updateCounter() {
+          counterElement.textContent = Math.floor(clicks) + " кликов";
+
+          upgrades.forEach((upgrade) => {
+            const element = document.getElementById(upgrade.id);
+            const cost = parseInt(element.getAttribute("data-cost"));
+            element.disabled =
+              clicks < cost || element.classList.contains("owned");
+          });
+        }
+
+        function updateStats() {
+          totalClicksElement.textContent = Math.floor(totalClicks);
+          clickPowerElement.textContent = Math.floor(clickPower * multiplier);
+          passiveIncomeElement.textContent =
+            Math.floor(passiveIncome * multiplier) + "/сек";
+        }
+
+        updateCounter();
+        updateStats();
+      </script>
     </section>
 </body>
 
